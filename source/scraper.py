@@ -102,9 +102,9 @@ class LeaguesScraper:
         return pd.DataFrame.from_dict(df)
 
     def _save_results_to_csv(self, df):
-        """Saves results inside data directory as csv files"""
+        """Saves results inside dataset directory as csv files"""
         league_name = re.search(r'-de-(.+)', self.url).group(1)
-        csv_filepath = f'data/final_table_{league_name}_{datetime.datetime.now().strftime("%Y_%m_%d")}'\
+        csv_filepath = f'dataset/final_table_{league_name}_{datetime.datetime.now().strftime("%Y_%m_%d")}'\
             .replace('-', '_').lower()
         logging.info(f'Saving data to: {csv_filepath}')
         df.to_csv(csv_filepath, index=False)
